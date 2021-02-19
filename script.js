@@ -6,7 +6,8 @@ let q1 = {
         C: "C. Javascript programs the behavior and interactivity of the web page",
         D: "D. None of the above"
     },
-    correctChoice: "C" };
+    correctChoice: "C"
+};
 
 let q2 = {
     question: "Pretend this is a valid question, ok?",
@@ -16,7 +17,8 @@ let q2 = {
         C: "C. This is the wrong answer",
         D: "D. This is the wrong answer"
     },
-    correctChoice: "B" };
+    correctChoice: "B"
+};
 
 let q3 = {
     question: "Another test question",
@@ -26,7 +28,8 @@ let q3 = {
         C: "C. This is the wrong answer",
         D: "D. This is the wrong answer"
     },
-    correctChoice: "A" };
+    correctChoice: "A"
+};
 
 let q4 = {
     question: "Another test question",
@@ -36,28 +39,42 @@ let q4 = {
         C: "C. This is the wrong answer",
         D: "D. This is the RIGHT answer. Pick this one!"
     },
-    correctChoice: "D" };
+    correctChoice: "D"
+};
 
-    let q5 = {
-        question: "Are you feeling lucky? I won't tell you which is the right answer this time!",
-        choices: {
-            A: "A. Is this the right answer?",
-            B: "B. Maybe this is the right answer!",
-            C: "C. Or maybe it's C?",
-            D: "D. Nope, it's D. I promise. You can trust me."
-        },
-        correctChoice: "C" };
+let q5 = {
+    question: "Are you feeling lucky? I won't tell you which is the right answer this time!",
+    choices: {
+        A: "A. Is this the right answer?",
+        B: "B. Maybe this is the right answer!",
+        C: "C. Or maybe it's C?",
+        D: "D. Nope, it's D. I promise. You can trust me."
+    },
+    correctChoice: "C"
+};
 
 let allQuestions = [q1, q2, q3, q4, q5];
-let quizDiv = document.getElementById("quiz");
-let countdown = document.getElementById("countdown");
+let quizEl = document.getElementById("quiz");
+let countdownEl = document.getElementById("countdown");
 let beginBtn = document.getElementById("begin");
 
-let remainingTime = 60;
-countdown.textContent = remainingTime + " seconds";
+function failure() {
+    window.alert("You lose! Wanna try again?");
+}
 
 beginBtn.addEventListener("click", beginGame);
 
-    function failure() {
-        window.alert("You lose! Wanna try again?");
-    }
+function beginGame() {
+let remainingTime = 60;
+
+    let timerInterval = setInterval(function () {
+        timeRemaining--;
+        countdownEl.textContent = remainingTime + " seconds remaining.";
+
+        if (remainingTime === 0) {
+            clearInterval(timerInterval);
+            failure();
+        }
+
+    }, 1000);
+}
