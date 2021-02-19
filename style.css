@@ -1,4 +1,14 @@
-.wrapper {
+  
+header {
     color: rgba(0, 0, 128, 0.623);
+    text-align: center;
+    font-size: 30px;
 }
 
+.time {
+font-size: 25px;
+}
+
+#countdown {
+    font-size: 30px;
+}
