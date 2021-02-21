@@ -6,7 +6,6 @@ let q1 = {
         C: "C. Javascript programs the behavior and interactivity of the web page",
         D: "D. None of the above"
     },
-    correctChoice: "C"
 };
 
 let q2 = {
@@ -17,7 +16,6 @@ let q2 = {
         C: "C. This is the wrong answer",
         D: "D. This is the wrong answer"
     },
-    correctChoice: "B"
 };
 
 let q3 = {
@@ -28,7 +26,6 @@ let q3 = {
         C: "C. This is the wrong answer",
         D: "D. This is the wrong answer"
     },
-    correctChoice: "A"
 };
 
 let q4 = {
@@ -39,7 +36,6 @@ let q4 = {
         C: "C. This is the wrong answer",
         D: "D. This is the RIGHT answer. Pick this one!"
     },
-    correctChoice: "D"
 };
 
 let q5 = {
@@ -50,7 +46,6 @@ let q5 = {
         C: "C. Or maybe it's C?",
         D: "D. Nope, it's D. I promise. You can trust me."
     },
-    correctChoice: "C"
 };
 
 let allQuestions = [q1, q2, q3, q4, q5];
@@ -68,9 +63,9 @@ function beginGame() {
 let remainingTime = 60;
 
     let timerInterval = setInterval(function () {
-        timeRemaining--;
-        countdownEl.textContent = remainingTime + " seconds remaining.";
-
+        remainingTime--;
+        countdownEl.textContent = remainingTime + " seconds remaining";
+        console.log(remainingTime);
         if (remainingTime === 0) {
             clearInterval(timerInterval);
             failure();
@@ -78,3 +73,13 @@ let remainingTime = 60;
 
     }, 1000);
 }
+
+function showQuestions() {
+    let printQ1 = document.querySelector(".QUESTION1");
+    printQ1.innerHTML = q1.question;
+    printQ1.innerHTML = q2.question;
+    printQ1.innerHTML = q2.choices.A;
+    
+}
+
+beginBtn.addEventListener("click", showQuestions);
