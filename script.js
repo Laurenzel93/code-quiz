@@ -1,5 +1,5 @@
 let q1 = {
-    question: "What is JavaScript responsible for?",
+    question1: "What is JavaScript responsible for?",
     choices: {
         A: "A. JavaScript specifies the design and layout of the web page",
         B: "B. JavaScript defines the content of the web page",
@@ -10,7 +10,7 @@ let q1 = {
 };
 
 let q2 = {
-    question: "Pretend this is a valid question, ok?",
+    question2: "Pretend this is a valid question, ok?",
     choices: {
         A: "A. This is the wrong answer",
         B: "B. This is the RIGHT answer. Pick this one!",
@@ -21,7 +21,7 @@ let q2 = {
 };
 
 let q3 = {
-    question: "Another test question",
+    question3: "Another test question",
     choices: {
         A: "A. This is the RIGHT answer. Pick this one!",
         B: "B. This is the wrong answer",
@@ -32,7 +32,7 @@ let q3 = {
 };
 
 let q4 = {
-    question: "Another test question",
+    question4: "Another test question",
     choices: {
         A: "A. This is the wrong answer",
         B: "B. This is the wrong answer",
@@ -43,7 +43,7 @@ let q4 = {
 };
 
 let q5 = {
-    question: "Are you feeling lucky? I won't tell you which is the right answer this time!",
+    question5: "Are you feeling lucky? I won't tell you which is the right answer this time!",
     choices: {
         A: "A. Is this the right answer?",
         B: "B. Maybe this is the right answer!",
@@ -66,11 +66,12 @@ beginBtn.addEventListener("click", beginGame);
 
 let remainingTime = 60;
 function beginGame() {
-
+    beginBtn.style.visibility = "hidden";
     let timerInterval = setInterval(function () {
         remainingTime--;
         countdownEl.textContent = remainingTime + " seconds remaining";
         console.log(remainingTime);
+        
         if (remainingTime === 0) {
             clearInterval(timerInterval);
             failure();
@@ -80,8 +81,8 @@ function beginGame() {
 }
 
 function showQuestion1() {
-    let printQ1 = document.getElementById("QUESTION1");
-    printQ1.innerHTML = q1.question;
+    let printQ1 = document.getElementById("QUESTION");
+    printQ1.innerHTML = q1.question1;
 
     let answer1 = document.getElementById("answer1");
     answer1.innerHTML = q1.choices.A;
@@ -91,6 +92,8 @@ function showQuestion1() {
     answer3.innerHTML = q1.choices.C;
     let answer4 = document.getElementById("answer4");
     answer4.innerHTML = q1.choices.D;
+
+    document.getElementById("begin").addEventListener("click", showQuestion1);
 
     answer1.addEventListener("click", function (){
         if (answer1.innerHTML ==  q1.correctAnswer){
@@ -103,8 +106,8 @@ function showQuestion1() {
 beginBtn.addEventListener("click", showQuestion1);
 
 function showQuestion2() {
-    let printQ2 = document.getElementById("QUESTION2");
-    printQ2.innerHTML = q2.question;
+    let printQ2 = document.getElementById("QUESTION");
+    printQ2.innerHTML = q2.question2;
 
     let answer1 = document.getElementById("answer1");
     answer1.innerHTML = q2.choices.A;
@@ -126,8 +129,8 @@ function showQuestion2() {
 beginBtn.addEventListener("click", showQuestion2);
 
 function showQuestion3() {
-    let printQ3 = document.getElementById("QUESTION3");
-    printQ3.innerHTML = q3.question;
+    let printQ3 = document.getElementById("QUESTION");
+    printQ3.innerHTML = q3.question3;
 
     let answer1 = document.getElementById("answer1");
     answer1.innerHTML = q3.choices.A;
@@ -149,8 +152,8 @@ function showQuestion3() {
 beginBtn.addEventListener("click", showQuestion3);
 
 function showQuestion4() {
-    let printQ4 = document.getElementById("QUESTION4");
-    printQ4.innerHTML = q4.question;
+    let printQ4 = document.getElementById("QUESTION");
+    printQ4.innerHTML = q4.question4;
 
     let answer1 = document.getElementById("answer1");
     answer1.innerHTML = q4.choices.A;
@@ -172,8 +175,8 @@ function showQuestion4() {
 beginBtn.addEventListener("click", showQuestion4);
 
 function showQuestion5() {
-    let printQ5 = document.getElementById("QUESTION5");
-    printQ5.innerHTML = q5.question;
+    let printQ5 = document.getElementById("QUESTION");
+    printQ5.innerHTML = q5.question5;
 
     let answer1 = document.getElementById("answer1");
     answer1.innerHTML = q5.choices.A;
@@ -193,4 +196,3 @@ function showQuestion5() {
     });
 }
 beginBtn.addEventListener("click", showQuestion5);
-
