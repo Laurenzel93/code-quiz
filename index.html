@@ -11,7 +11,13 @@
 <header>
   <h2>JavaScript Coding Quiz</h2>
   <div id="quiz"></div>
-  <button id="begin">Click Here to Begin the Quiz!</button>
+
+  <button id="begin" onclick="showQuestion1()">Click Here to Begin the Quiz!</button>
+  <button onclick="showQuestion2()">show2</button>
+  <button onclick="showQuestion3()">show3</button>
+  <button onclick="showQuestion4()">show4</button>
+  <button onclick="showQuestion5()">show5</button>
+
 
 </header>
 
@@ -19,69 +25,76 @@
   <a href="#">View Scores</a>
   <div class="timer-container">
     <br>
-      <div class="time">Timer Countdown:</div> 
-      <div id="countdown">60 seconds remaining</div>
+    <div class="time">Timer Countdown:</div>
+    <div id="countdown">60 seconds remaining</div>
   </div>
 
- <main>
-  <div class="q-container">
-    <h3 id="question"></h3>
-    <p id ="QUESTION1"></p>
-    <a href = "#"id="answer1"></a>
-    <br>
-    <a href = "#"id="answer2"></a>
-    <br>
-    <a href = "#"id="answer3"></a>
-    <br>
-    <a href ="#"id="answer4"></a>
+  <main>
+    <div class="q1-container">
+     
+      <p id="QUESTION"></p>
+      <a href="#" id="answer1"></a>
+      <br>
+      <a href="#" id="answer2"></a>
+      <br>
+      <a href="#" id="answer3"></a>
+      <br>
+      <a href="#" id="answer4"></a>
+      <br>
+    </div>
+  
 
-
-    <div class="q-container">
-      <h3 id="question"></h3>
-      <p id ="QUESTION2"></p>
-      <a href = "#"id="answer1"></a>
-      <br>
-      <a href = "#"id="answer2"></a>
-      <br>
-      <a href = "#"id="answer3"></a>
-      <br>
-      <a href ="#"id="answer4"></a>
+    <div class="q2-container">
  
+      <p id="QUESTION"></p>
+      <a href="#" id="answer1"></a>
+      <br>
+      <a href="#" id="answer2"></a>
+      <br>
+      <a href="#" id="answer3"></a>
+      <br>
+      <a href="#" id="answer4"></a>
+    </div>
 
- <div class="q-container">
-  <h3 id="question"></h3>
-  <p id ="QUESTION3"></p>
-  <a href = "#"id="answer1"></a>
-  <br>
-  <a href = "#"id="answer2"></a>
-  <br>
-  <a href = "#"id="answer3"></a>
-  <br>
-  <a href ="#"id="answer4"></a>
+    <div class="q3-container">
+    <div id="QUESTION"></div>
+    <a href="#" id="answer1"></a>
+      <br>
+      <a href="#" id="answer2"></a>
+      <br>
+      <a href="#" id="answer3"></a>
+      <br>
+      <a href="#" id="answer4"></a>
+    </div>
+
+    <div class="q4-container">
+    <div id="QUESTION"></div>
+    <a href="#" id="answer1"></a>
+      <br>
+      <a href="#" id="answer2"></a>
+      <br>
+      <a href="#" id="answer3"></a>
+      <br>
+      <a href="#" id="answer4"></a>
+     
+    </div>
 
 
-<div class="q-container">
-  <h3 id="question"></h3>
-  <p id ="QUESTION4"></p>
-  <a href = "#"id="answer1"></a>
-  <br>
-  <a href = "#"id="answer2"></a>
-  <br>
-  <a href = "#"id="answer3"></a>
-  <br>
-  <a href ="#"id="answer4"></a>
+    <div class="q5-container">
+    <div id="QUESTION"></div>
+    <a href="#" id="answer1"></a>
+      <br>
+      <a href="#" id="answer2"></a>
+      <br>
+      <a href="#" id="answer3"></a>
+      <br>
+      <a href="#" id="answer4"></a>
+    </div>
 
-  <div class="q-container">
-    <h3 id="question"></h3>
-    <p id ="QUESTION5"></p>
-    <a href = "#"id="answer1"></a>
-    <br>
-    <a href = "#"id="answer2"></a>
-    <br>
-    <a href = "#"id="answer3"></a>
-    <br>
-    <a href ="#"id="answer4"></a>
-</main>
+    <button id="next">Submit Answer</button>
+    
+
+  </main>
 
   <script src="script.js"></script>
 </body>
