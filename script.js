@@ -1,11 +1,12 @@
 let q1 = {
     question: "What is JavaScript responsible for?",
     choices: {
-        A: "A. JavaScript spcifies the design and layout of the web page",
+        A: "A. JavaScript specifies the design and layout of the web page",
         B: "B. JavaScript defines the content of the web page",
         C: "C. Javascript programs the behavior and interactivity of the web page",
         D: "D. None of the above"
     },
+    correctAnswer: "C. Javascript programs the behavior and interactivity of the web page"
 };
 
 let q2 = {
@@ -16,6 +17,7 @@ let q2 = {
         C: "C. This is the wrong answer",
         D: "D. This is the wrong answer"
     },
+    correctAnswer: "B. This is the RIGHT answer. Pick this one!"
 };
 
 let q3 = {
@@ -26,6 +28,7 @@ let q3 = {
         C: "C. This is the wrong answer",
         D: "D. This is the wrong answer"
     },
+    correctAnswer: "A. This is the RIGHT answer. Pick this one!"
 };
 
 let q4 = {
@@ -36,6 +39,7 @@ let q4 = {
         C: "C. This is the wrong answer",
         D: "D. This is the RIGHT answer. Pick this one!"
     },
+    correctAnswer: "D. This is the RIGHT answer. Pick this one!"
 };
 
 let q5 = {
@@ -46,6 +50,7 @@ let q5 = {
         C: "C. Or maybe it's C?",
         D: "D. Nope, it's D. I promise. You can trust me."
     },
+    correctAnswer: "C. Or maybe it's C?"
 };
 
 let allQuestions = [q1, q2, q3, q4, q5];
@@ -59,8 +64,8 @@ function failure() {
 
 beginBtn.addEventListener("click", beginGame);
 
-function beginGame() {
 let remainingTime = 60;
+function beginGame() {
 
     let timerInterval = setInterval(function () {
         remainingTime--;
@@ -74,12 +79,118 @@ let remainingTime = 60;
     }, 1000);
 }
 
-function showQuestions() {
-    let printQ1 = document.querySelector(".QUESTION1");
+function showQuestion1() {
+    let printQ1 = document.getElementById("QUESTION1");
     printQ1.innerHTML = q1.question;
-    printQ1.innerHTML = q2.question;
-    printQ1.innerHTML = q2.choices.A;
-    
-}
 
-beginBtn.addEventListener("click", showQuestions);
+    let answer1 = document.getElementById("answer1");
+    answer1.innerHTML = q1.choices.A;
+    let answer2 = document.getElementById("answer2");
+    answer2.innerHTML = q1.choices.B;
+    let answer3 = document.getElementById("answer3");
+    answer3.innerHTML = q1.choices.C;
+    let answer4 = document.getElementById("answer4");
+    answer4.innerHTML = q1.choices.D;
+
+    answer1.addEventListener("click", function (){
+        if (answer1.innerHTML ==  q1.correctAnswer){
+            points++; 
+        } else {
+            remainingTime = remainingTime - 5;
+        }
+    });
+}
+beginBtn.addEventListener("click", showQuestion1);
+
+function showQuestion2() {
+    let printQ2 = document.getElementById("QUESTION2");
+    printQ2.innerHTML = q2.question;
+
+    let answer1 = document.getElementById("answer1");
+    answer1.innerHTML = q2.choices.A;
+    let answer2 = document.getElementById("answer2");
+    answer2.innerHTML = q2.choices.B;
+    let answer3 = document.getElementById("answer3");
+    answer3.innerHTML = q2.choices.C;
+    let answer4 = document.getElementById("answer4");
+    answer4.innerHTML = q2.choices.D;
+
+    answer2.addEventListener("click", function (){
+        if (answer2.innerHTML ==  q2.correctAnswer){
+            points++; 
+        } else {
+            remainingTime = remainingTime - 5;
+        }
+    });
+}
+beginBtn.addEventListener("click", showQuestion2);
+
+function showQuestion3() {
+    let printQ3 = document.getElementById("QUESTION3");
+    printQ3.innerHTML = q3.question;
+
+    let answer1 = document.getElementById("answer1");
+    answer1.innerHTML = q3.choices.A;
+    let answer2 = document.getElementById("answer2");
+    answer2.innerHTML = q3.choices.B;
+    let answer3 = document.getElementById("answer3");
+    answer3.innerHTML = q3.choices.C;
+    let answer4 = document.getElementById("answer4");
+    answer4.innerHTML = q3.choices.D;
+
+    answer3.addEventListener("click", function (){
+        if (answer3.innerHTML ==  q3.correctAnswer){
+            points++; 
+        } else {
+            remainingTime = remainingTime - 5;
+        }
+    });
+}
+beginBtn.addEventListener("click", showQuestion3);
+
+function showQuestion4() {
+    let printQ4 = document.getElementById("QUESTION4");
+    printQ4.innerHTML = q4.question;
+
+    let answer1 = document.getElementById("answer1");
+    answer1.innerHTML = q4.choices.A;
+    let answer2 = document.getElementById("answer2");
+    answer2.innerHTML = q4.choices.B;
+    let answer3 = document.getElementById("answer3");
+    answer3.innerHTML = q4.choices.C;
+    let answer4 = document.getElementById("answer4");
+    answer4.innerHTML = q4.choices.D;
+
+    answer4.addEventListener("click", function (){
+        if (answer4.innerHTML ==  q4.correctAnswer){
+            points++; 
+        } else {
+            remainingTime = remainingTime - 5;
+        }
+    });
+}
+beginBtn.addEventListener("click", showQuestion4);
+
+function showQuestion5() {
+    let printQ5 = document.getElementById("QUESTION5");
+    printQ5.innerHTML = q5.question;
+
+    let answer1 = document.getElementById("answer1");
+    answer1.innerHTML = q5.choices.A;
+    let answer2 = document.getElementById("answer2");
+    answer2.innerHTML = q5.choices.B;
+    let answer3 = document.getElementById("answer3");
+    answer3.innerHTML = q5.choices.C;
+    let answer4 = document.getElementById("answer4");
+    answer4.innerHTML = q5.choices.D;
+
+    answer5.addEventListener("click", function (){
+        if (answer5.innerHTML ==  q5.correctAnswer){
+            points++; 
+        } else {
+            remainingTime = remainingTime - 5;
+        }
+    });
+}
+beginBtn.addEventListener("click", showQuestion5);
+
