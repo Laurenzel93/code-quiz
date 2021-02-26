@@ -58,6 +58,10 @@ let quizEl = document.getElementById("quiz");
 let countdownEl = document.getElementById("countdown");
 let beginBtn = document.getElementById("begin");
 
+for (let i =0; i < allQuestions.length; i++){
+    console.log(allQuestions[i]);
+}
+
 function failure() {
     window.alert("You lose! Wanna try again?");
 }
