@@ -1,5 +1,5 @@
 let q1 = {
-    question1: "What is JavaScript responsible for?",
+    content: "What is JavaScript responsible for?",
     choices: {
         A: "A. JavaScript specifies the design and layout of the web page",
         B: "B. JavaScript defines the content of the web page",
@@ -10,7 +10,7 @@ let q1 = {
 };
 
 let q2 = {
-    question2: "Pretend this is a valid question, ok?",
+    content: "Pretend this is a valid question, ok?",
     choices: {
         A: "A. This is the wrong answer",
         B: "B. This is the RIGHT answer. Pick this one!",
@@ -21,7 +21,7 @@ let q2 = {
 };
 
 let q3 = {
-    question3: "Another test question",
+    content: "Another test question",
     choices: {
         A: "A. This is the RIGHT answer. Pick this one!",
         B: "B. This is the wrong answer",
@@ -32,7 +32,7 @@ let q3 = {
 };
 
 let q4 = {
-    question4: "Another test question",
+    content: "Another test question",
     choices: {
         A: "A. This is the wrong answer",
         B: "B. This is the wrong answer",
@@ -43,7 +43,7 @@ let q4 = {
 };
 
 let q5 = {
-    question5: "Are you feeling lucky? I won't tell you which is the right answer this time!",
+    content: "Are you feeling lucky? I won't tell you which is the right answer this time!",
     choices: {
         A: "A. Is this the right answer?",
         B: "B. Maybe this is the right answer!",
@@ -58,12 +58,8 @@ let quizEl = document.getElementById("quiz");
 let countdownEl = document.getElementById("countdown");
 let beginBtn = document.getElementById("begin");
 
-for (let i =0; i < allQuestions.length; i++){
+for (let i = 0; i < allQuestions.length; i++) {
     console.log(allQuestions[i]);
-}
-
-function failure() {
-    window.alert("You lose! Wanna try again?");
 }
 
 beginBtn.addEventListener("click", beginGame);
@@ -75,18 +71,28 @@ function beginGame() {
         remainingTime--;
         countdownEl.textContent = remainingTime + " seconds remaining";
         console.log(remainingTime);
-        
-        if (remainingTime === 0) {
+
+        if (remainingTime <= 0) {
             clearInterval(timerInterval);
             failure();
+        } else {
+            remainingTime === 0;
         }
 
     }, 1000);
 }
 
+function failure() {
+
+    let restartGame = window.alert("You lose! Wanna try again?");
+    if (restartGame === true) {
+        beginGame();
+    }
+}
+
 function showQuestion1() {
     let printQ1 = document.getElementById("QUESTION");
-    printQ1.innerHTML = q1.question1;
+    printQ1.innerHTML = q1.content;
 
     let answer1 = document.getElementById("answer1");
     answer1.innerHTML = q1.choices.A;
@@ -97,21 +103,60 @@ function showQuestion1() {
     let answer4 = document.getElementById("answer4");
     answer4.innerHTML = q1.choices.D;
 
-    document.getElementById("begin").addEventListener("click", showQuestion1);
+}
 
-    answer1.addEventListener("click", function (){
-        if (answer1.innerHTML ==  q1.correctAnswer){
-            points++; 
+function checkAnswer(answer) {
+    let questionContent = document.getElementById("QUESTION").innerHTML;
+    if (questionContent === q1.content){ //question 1 check
+        if (answer.innerHTML == q1.correctAnswer) {
+            showQuestion2();
+            points++;
         } else {
             remainingTime = remainingTime - 5;
         }
-    });
+    }
+
+    if (questionContent === q2.content){ //question 2 check
+        if (answer.innerHTML == q2.correctAnswer) {
+            showQuestion3();
+            points++;
+        } else {
+            remainingTime = remainingTime - 5;
+        }
+    }
+
+    if (questionContent === q3.content){ //question 3 check
+        if (answer.innerHTML == q3.correctAnswer) {
+            showQuestion4();
+            points++;
+        } else {
+            remainingTime = remainingTime - 5;
+        }
+    }
+
+    if (questionContent === q4.content){ //question 4 check
+        if (answer.innerHTML == q4.correctAnswer) {
+            showQuestion5();
+            points++;
+        } else {
+            remainingTime = remainingTime - 5;
+        }
+    }
+
+    if (questionContent === q5.content){ //question 5 check
+        if (answer.innerHTML == q5.correctAnswer) {
+            getScore();
+            points++;
+        } else {
+            remainingTime = remainingTime - 5;
+        }
+    }
 }
-beginBtn.addEventListener("click", showQuestion1);
+
 
 function showQuestion2() {
     let printQ2 = document.getElementById("QUESTION");
-    printQ2.innerHTML = q2.question2;
+    printQ2.innerHTML = q2.content;
 
     let answer1 = document.getElementById("answer1");
     answer1.innerHTML = q2.choices.A;
@@ -121,20 +166,11 @@ function showQuestion2() {
     answer3.innerHTML = q2.choices.C;
     let answer4 = document.getElementById("answer4");
     answer4.innerHTML = q2.choices.D;
-
-    answer2.addEventListener("click", function (){
-        if (answer2.innerHTML ==  q2.correctAnswer){
-            points++; 
-        } else {
-            remainingTime = remainingTime - 5;
-        }
-    });
 }
-beginBtn.addEventListener("click", showQuestion2);
 
 function showQuestion3() {
     let printQ3 = document.getElementById("QUESTION");
-    printQ3.innerHTML = q3.question3;
+    printQ3.innerHTML = q3.content;
 
     let answer1 = document.getElementById("answer1");
     answer1.innerHTML = q3.choices.A;
@@ -144,20 +180,11 @@ function showQuestion3() {
     answer3.innerHTML = q3.choices.C;
     let answer4 = document.getElementById("answer4");
     answer4.innerHTML = q3.choices.D;
-
-    answer3.addEventListener("click", function (){
-        if (answer3.innerHTML ==  q3.correctAnswer){
-            points++; 
-        } else {
-            remainingTime = remainingTime - 5;
-        }
-    });
 }
-beginBtn.addEventListener("click", showQuestion3);
 
 function showQuestion4() {
     let printQ4 = document.getElementById("QUESTION");
-    printQ4.innerHTML = q4.question4;
+    printQ4.innerHTML = q4.content;
 
     let answer1 = document.getElementById("answer1");
     answer1.innerHTML = q4.choices.A;
@@ -168,19 +195,12 @@ function showQuestion4() {
     let answer4 = document.getElementById("answer4");
     answer4.innerHTML = q4.choices.D;
 
-    answer4.addEventListener("click", function (){
-        if (answer4.innerHTML ==  q4.correctAnswer){
-            points++; 
-        } else {
-            remainingTime = remainingTime - 5;
-        }
-    });
 }
-beginBtn.addEventListener("click", showQuestion4);
+
 
 function showQuestion5() {
     let printQ5 = document.getElementById("QUESTION");
-    printQ5.innerHTML = q5.question5;
+    printQ5.innerHTML = q5.content;
 
     let answer1 = document.getElementById("answer1");
     answer1.innerHTML = q5.choices.A;
@@ -190,13 +210,4 @@ function showQuestion5() {
     answer3.innerHTML = q5.choices.C;
     let answer4 = document.getElementById("answer4");
     answer4.innerHTML = q5.choices.D;
-
-    answer5.addEventListener("click", function (){
-        if (answer5.innerHTML ==  q5.correctAnswer){
-            points++; 
-        } else {
-            remainingTime = remainingTime - 5;
-        }
-    });
 }
-beginBtn.addEventListener("click", showQuestion5);
